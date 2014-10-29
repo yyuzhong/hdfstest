@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=/usr/java/jdk1.6.0_31/jre/lib/amd64/server/:/usr/lib64/:$LD_LIBRARY_PATH
+
+echo $LD_LIBRARY_PATH
+
+HADOOP_HOME=/usr/lib/hadoop/
+#for f in ls $HADOOP_HOME/lib/*.jar $HADOOP_HOME/*.jar ; do
+#export  CLASSPATH=$CLASSPATH:$f
+#done
+
+
+export CLASSPATH=/usr/lib/hadoop/libexec/../conf:/usr/java/latest/lib/tools.jar:/usr/lib/hadoop/libexec/..:/usr/lib/hadoop/libexec/../hadoop-core-1.0.3-Intel.jar:/usr/lib/hadoop/libexec/../lib/asm-3.2.jar:/usr/lib/hadoop/libexec/../lib/aspectjrt-1.6.5.jar:/usr/lib/hadoop/libexec/../lib/aspectjtools-1.6.5.jar:/usr/lib/hadoop/libexec/../lib/avro-1.7.4-Intel.jar:/usr/lib/hadoop/libexec/../lib/avro-mapred-1.7.4-Intel.jar:/usr/lib/hadoop/libexec/../lib/commons-beanutils-1.7.0.jar:/usr/lib/hadoop/libexec/../lib/commons-beanutils-core-1.8.0.jar:/usr/lib/hadoop/libexec/../lib/commons-cli-1.2.jar:/usr/lib/hadoop/libexec/../lib/commons-codec-1.4.jar:/usr/lib/hadoop/libexec/../lib/commons-collections-3.2.1.jar:/usr/lib/hadoop/libexec/../lib/commons-configuration-1.6.jar:/usr/lib/hadoop/libexec/../lib/commons-daemon-1.0.1.jar:/usr/lib/hadoop/libexec/../lib/commons-digester-1.8.jar:/usr/lib/hadoop/libexec/../lib/commons-el-1.0.jar:/usr/lib/hadoop/libexec/../lib/commons-httpclient-3.1.jar:/usr/lib/hadoop/libexec/../lib/commons-io-2.1.jar:/usr/lib/hadoop/libexec/../lib/commons-lang-2.4.jar:/usr/lib/hadoop/libexec/../lib/commons-logging-1.1.1.jar:/usr/lib/hadoop/libexec/../lib/commons-logging-api-1.0.4.jar:/usr/lib/hadoop/libexec/../lib/commons-math-2.1.jar:/usr/lib/hadoop/libexec/../lib/commons-net-1.4.1.jar:/usr/lib/hadoop/libexec/../lib/core-3.1.1.jar:/usr/lib/hadoop/libexec/../lib/glusterfs-hadoop-glusterfs-hadoop-0.0.4.jar:/usr/lib/hadoop/libexec/../lib/guava-r09.jar:/usr/lib/hadoop/libexec/../lib/hadoop-capacity-scheduler-1.0.3-Intel.jar:/usr/lib/hadoop/libexec/../lib/hadoop-crypto-1.0.0-Intel.jar:/usr/lib/hadoop/libexec/../lib/hadoop-fairscheduler-1.0.3-Intel.jar:/usr/lib/hadoop/libexec/../lib/hadoop-thriftfs-1.0.3-Intel.jar:/usr/lib/hadoop/libexec/../lib/hsqldb-1.8.0.10.jar:/usr/lib/hadoop/libexec/../lib/intel-imkey.jar:/usr/lib/hadoop/libexec/../lib/jackson-core-asl-1.8.8.jar:/usr/lib/hadoop/libexec/../lib/jackson-mapper-asl-1.8.8.jar:/usr/lib/hadoop/libexec/../lib/jasper-compiler-5.5.12.jar:/usr/lib/hadoop/libexec/../lib/jasper-runtime-5.5.12.jar:/usr/lib/hadoop/libexec/../lib/jdeb-0.8.jar:/usr/lib/hadoop/libexec/../lib/jersey-client-1.8.jar:/usr/lib/hadoop/libexec/../lib/jersey-core-1.8.jar:/usr/lib/hadoop/libexec/../lib/jersey-json-1.8.jar:/usr/lib/hadoop/libexec/../lib/jersey-server-1.8.jar:/usr/lib/hadoop/libexec/../lib/jets3t-0.6.1.jar:/usr/lib/hadoop/libexec/../lib/jetty-6.1.26.intel.1.jar:/usr/lib/hadoop/libexec/../lib/jetty-util-6.1.26.intel.1.jar:/usr/lib/hadoop/libexec/../lib/jsch-0.1.42.jar:/usr/lib/hadoop/libexec/../lib/json-simple-1.1.jar:/usr/lib/hadoop/libexec/../lib/junit-4.5.jar:/usr/lib/hadoop/libexec/../lib/kfs-0.2.2.jar:/usr/lib/hadoop/libexec/../lib/log4j-1.2.15.jar:/usr/lib/hadoop/libexec/../lib/mockito-all-1.8.5.jar:/usr/lib/hadoop/libexec/../lib/oro-2.0.8.jar:/usr/lib/hadoop/libexec/../lib/servlet-api-2.5-20081211.jar:/usr/lib/hadoop/libexec/../lib/slf4j-api-1.4.3.jar:/usr/lib/hadoop/libexec/../lib/slf4j-log4j12-1.4.3.jar:/usr/lib/hadoop/libexec/../lib/xmlenc-0.52.jar:/usr/lib/hadoop/libexec/../lib/jsp-2.1/jsp-2.1.jar:/usr/lib/hadoop/libexec/../lib/jsp-2.1/jsp-api-2.1.jar::/usr/lib/hbase/hbase.jar:/usr/lib/hbase/conf:/usr/lib/zookeeper/zookeeper.jar:/etc/hbase/conf:/usr/lib/hbase/lib/protobuf-java.jar
+
+echo $CLASSPATH
+
+gcc testhdfs.c -I/usr/include -I/usr/java/jdk1.6.0_31/include -I/usr/java/jdk1.6.0_31/include/linux -L/usr/java/jdk1.6.0_31/jre/lib/amd64/server/ -L/usr/lib64/ -lhdfs -ljvm -o testhdfs
+
+./testhdfs
